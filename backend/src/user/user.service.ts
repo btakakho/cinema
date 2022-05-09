@@ -12,7 +12,7 @@ export class UserService {
   ) {}
 
   async byId(id: string) {
-    const user = await this.userModel.findById(id)
+    const user = await this.userModel.findById(id).exec()
 
     if (!user) throw new NotFoundException('User not found')
 
@@ -22,9 +22,11 @@ export class UserService {
   async updateProfile(_id: string, dto: UpdateUserDto) {
     const user = await this.byId(_id)
 
-    const isSameUser = await this.userModel.findOne({
-      email: dto.email,
-    })
+    const isSameUser = await this.userModel
+      .findOne({
+        email: dto.email,
+      })
+      .exec()
 
     if (isSameUser && String(_id) !== String(isSameUser._id)) {
       throw new NotFoundException('Email busy')

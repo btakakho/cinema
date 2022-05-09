@@ -14,12 +14,12 @@ import { RefreshTokenDto } from './dto/refresh-token.dto'
 @Injectable()
 export class AuthService {
   constructor(
-    @InjectModel(UserModel) private readonly UserModel: ModelType<UserModel>,
+    @InjectModel(UserModel) private readonly userModel: ModelType<UserModel>,
     private readonly jwtService: JwtService,
   ) {}
 
   async register(dto: AuthDto) {
-    const oldUser = await this.UserModel.findOne({ email: dto.email })
+    const oldUser = await this.userModel.findOne({ email: dto.email }).exec()
 
     if (oldUser) {
       throw new BadRequestException('User with this email is already exists')
@@ -27,7 +27,7 @@ export class AuthService {
 
     const salt = await genSalt()
 
-    const newUser = new this.UserModel({
+    const newUser = new this.userModel({
       email: dto.email,
       password: await hash(dto.password, salt),
     })
@@ -63,7 +63,7 @@ export class AuthService {
 
     if (!result) throw new UnauthorizedException('Invalid token or expired')
 
-    const user = await this.UserModel.findById(result._id)
+    const user = await this.userModel.findById(result._id).exec()
 
     const tokens = await this.issueTokenPair(String(user._id))
 
@@ -74,7 +74,7 @@ export class AuthService {
   }
 
   private async validateUser(dto: AuthDto): Promise<UserModel> {
-    const user = await this.UserModel.findOne({ email: dto.email })
+    const user = await this.userModel.findOne({ email: dto.email })
 
     if (!user) {
       throw new UnauthorizedException('Email or password is not correct')

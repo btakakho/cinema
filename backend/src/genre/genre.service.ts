@@ -16,7 +16,7 @@ export class GenreService {
   ) {}
 
   async bySlug(slug: string) {
-    const genre = await this.genreModel.findOne({ slug })
+    const genre = await this.genreModel.findOne({ slug }).exec()
 
     if (!genre) throw new NotFoundException('Genre with this slug not found')
 
@@ -52,7 +52,7 @@ export class GenreService {
   }
 
   async byId(id: string) {
-    const genre = await this.genreModel.findById(id)
+    const genre = await this.genreModel.findById(id).exec()
 
     if (!genre) throw new NotFoundException('Genre not found')
 
@@ -76,6 +76,7 @@ export class GenreService {
     const genre = await this.genreModel
       .findOne()
       .or([{ name: dto.name }, { slug: dto.slug }])
+      .exec()
 
     if (genre && genre.id !== id) {
       throw new BadRequestException(

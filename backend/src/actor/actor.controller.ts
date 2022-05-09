@@ -13,56 +13,51 @@ import {
 } from '@nestjs/common'
 import { Auth } from 'src/auth/decorators/auth.decorator'
 import { IdValidationPipe } from 'src/user/pipes/id-validation.pipes'
-import { CreateGenreDto } from './dto/create-genre.dto'
-import { GenreService } from './genre.service'
+import { ActorService } from './actor.service'
+import { ActorDto } from './dto/actor.dto'
 
-@Controller('genres')
-export class GenreController {
-  constructor(private readonly genreService: GenreService) {}
+@Controller('actors')
+export class ActorController {
+  constructor(private readonly actorService: ActorService) {}
 
   @Get()
   async getAll(@Query('searchTerm') searchTerm?: string) {
-    return this.genreService.getAll(searchTerm)
-  }
-
-  @Get('collections')
-  async getCollections() {
-    return this.genreService.getCollections()
+    return this.actorService.getAll(searchTerm)
   }
 
   @Get('by-slug/:slug')
   async getBySlug(@Param('slug') slug: string) {
-    return this.genreService.bySlug(slug)
+    return this.actorService.bySlug(slug)
   }
 
   @Post()
   @HttpCode(200)
   @Auth('admin')
-  async createGenre() {
-    return this.genreService.create()
+  async createActor() {
+    return this.actorService.create()
   }
 
   @Get(':id')
   @Auth('admin')
   async getById(@Param('id', IdValidationPipe) id: string) {
-    return this.genreService.byId(id)
+    return this.actorService.byId(id)
   }
 
   @UsePipes(new ValidationPipe())
   @Put(':id')
   @HttpCode(200)
   @Auth('admin')
-  async updateGenre(
+  async updateActor(
     @Param('id', IdValidationPipe) id: string,
-    @Body() dto: CreateGenreDto,
+    @Body() dto: ActorDto,
   ) {
-    return this.genreService.update(id, dto)
+    return this.actorService.update(id, dto)
   }
 
   @Delete(':id')
   @HttpCode(200)
   @Auth('admin')
-  async deleteGenre(@Param('id', IdValidationPipe) id: string) {
-    return this.genreService.delete(id)
+  async deleteActor(@Param('id', IdValidationPipe) id: string) {
+    return this.actorService.delete(id)
   }
 }
