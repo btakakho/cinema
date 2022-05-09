@@ -7,9 +7,7 @@ import { getMongoDbConfig } from './config/mongo.config'
 import { FileModule } from './file/file.module'
 import { GenreModule } from './genre/genre.module'
 import { UserModule } from './user/user.module'
-import { MovieController } from './movie/movie.controller';
-import { MovieService } from './movie/movie.service';
-import { MovieModule } from './movie/movie.module';
+import { MovieModule } from './movie/movie.module'
 
 @Module({
   imports: [
@@ -26,7 +24,7 @@ import { MovieModule } from './movie/movie.module';
     ActorModule,
     MovieModule,
   ],
-  controllers: [MovieController],
-  providers: [MovieService],
+  controllers: [],
+  providers: [],
 })
 export class AppModule {}
