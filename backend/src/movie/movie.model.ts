@@ -29,9 +29,6 @@ export class MovieModel extends TimeStamps {
   @Prop()
   bigPoster: string
 
-  // @Prop()
-  // description: string
-
   @Prop()
   paramaters?: Parameters
 

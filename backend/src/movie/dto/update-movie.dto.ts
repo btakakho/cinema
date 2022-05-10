@@ -32,9 +32,6 @@ export class UpdateMovieDto {
   @IsString()
   bigPoster: string
 
-  // @IsString()
-  // description: string
-
   @IsOptional()
   @IsObject()
   paramaters?: Parameters

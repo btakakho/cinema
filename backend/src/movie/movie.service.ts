@@ -85,7 +85,6 @@ export class MovieService {
       slug: '',
       poster: '',
       bigPoster: '',
-      // description: '',
       videoUrl: '',
       genres: [],
       actors: [],
