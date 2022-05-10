@@ -8,6 +8,9 @@ import { FileModule } from './file/file.module'
 import { GenreModule } from './genre/genre.module'
 import { UserModule } from './user/user.module'
 import { MovieModule } from './movie/movie.module'
+import { RatingController } from './rating/rating.controller'
+import { RatingService } from './rating/rating.service'
+import { RatingModule } from './rating/rating.module'
 
 @Module({
   imports: [
@@ -23,8 +26,9 @@ import { MovieModule } from './movie/movie.module'
     FileModule,
     ActorModule,
     MovieModule,
+    RatingModule,
   ],
-  controllers: [],
-  providers: [],
+  controllers: [RatingController],
+  providers: [RatingService],
 })
 export class AppModule {}
