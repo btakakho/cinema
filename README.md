@@ -1,2 +1,2 @@
-# cinema
-Online cinema app
+# Online cinema app
+
