@@ -10,10 +10,12 @@ import {
   UsePipes,
   ValidationPipe,
 } from '@nestjs/common'
+import { Types } from 'mongoose'
 import { Auth } from 'src/auth/decorators/auth.decorator'
 import { User } from './decorators/user.decorator'
 import { UpdateUserDto } from './dto/update-user.dto'
 import { IdValidationPipe } from './pipes/id-validation.pipes'
+import { UserModel } from './user.model'
 import { UserService } from './user.service'
 
 @Controller('users')
@@ -24,6 +26,22 @@ export class UserController {
   @Auth()
   async getProfile(@User('_id') id: string) {
     return this.userService.byId(id)
+  }
+
+  @Get('profile/favorites')
+  @Auth()
+  async getFavorites(@User('_id') id: Types.ObjectId) {
+    return this.userService.getFavoriteMovies(id)
+  }
+
+  @Put('profile/favorites')
+  @HttpCode(200)
+  @Auth()
+  async toggleFavorites(
+    @Body('movieId', IdValidationPipe) movieId: Types.ObjectId,
+    @User() user: UserModel,
+  ) {
+    return this.userService.toggleFavorite(movieId, user)
   }
 
   @UsePipes(new ValidationPipe())
