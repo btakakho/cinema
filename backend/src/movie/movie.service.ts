@@ -114,6 +114,18 @@ export class MovieService {
     return movie
   }
 
+  async updateRating(id: Types.ObjectId, newRating: number) {
+    return await this.movieModel
+      .findByIdAndUpdate(
+        id,
+        {
+          rating: newRating,
+        },
+        { new: true },
+      )
+      .exec()
+  }
+
   async update(id: string, dto: UpdateMovieDto) {
     const movie = await this.movieModel.findOne({ slug: dto.slug }).exec()
 

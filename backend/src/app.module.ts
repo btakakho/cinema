@@ -6,11 +6,9 @@ import { AuthModule } from './auth/auth.module'
 import { getMongoDbConfig } from './config/mongo.config'
 import { FileModule } from './file/file.module'
 import { GenreModule } from './genre/genre.module'
-import { UserModule } from './user/user.module'
 import { MovieModule } from './movie/movie.module'
-import { RatingController } from './rating/rating.controller'
-import { RatingService } from './rating/rating.service'
 import { RatingModule } from './rating/rating.module'
+import { UserModule } from './user/user.module'
 
 @Module({
   imports: [
@@ -28,7 +26,7 @@ import { RatingModule } from './rating/rating.module'
     MovieModule,
     RatingModule,
   ],
-  controllers: [RatingController],
-  providers: [RatingService],
+  controllers: [],
+  providers: [],
 })
 export class AppModule {}
