@@ -14,9 +14,10 @@
     "^@/assets/(.*)$",
     "^@/utils/(.*)$",
     "^@/store/(.*)$",
-    "^../(.*)",
+    "(.scss)$",
+    "(.interface.*)$",
     "^./(.*)",
-    "(.scss)$"
+    "^../(.*)"
   ],
   "importOrderSeparation": true,
   "importOrderSortSpecifiers": true
