@@ -1,3 +1,5 @@
+import { Heading } from '@/components/ui/Heading'
+
 import { Meta } from '@/utils/meta/Meta'
 
 export const Home = () => {
@@ -6,7 +8,9 @@ export const Home = () => {
       title="Watch movies online"
       description="Watch Cinema movies and TV shows or stream right to your browser."
     >
-      <h1>Home page</h1>
+      <Heading className="text-gray-300 mb-8 text-xl">
+        Watch movies online
+      </Heading>
     </Meta>
   )
 }
