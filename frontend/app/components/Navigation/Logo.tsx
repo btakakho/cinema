@@ -1,7 +1,7 @@
 import Image from 'next/image'
 import Link from 'next/link'
 
-const logoImage = '/logo.svg'
+export const logoImage = '/logo.svg'
 
 export const Logo = () => {
   return (

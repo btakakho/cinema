@@ -1,4 +1,4 @@
-export const API_URL = process.env.APP_URL
+export const API_URL = `${process.env.APP_URL}/api`
 
 export const getAuthUrl = (endpoint: string = '') => `/auth/${endpoint}`
 export const getUsersUrl = (endpoint: string = '') => `/users/${endpoint}`

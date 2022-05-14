@@ -1,3 +1,4 @@
+import { LayoutDefault } from 'layouts/Default'
 import { QueryClient, QueryClientProvider } from 'react-query'
 
 interface IProps {
@@ -14,6 +15,8 @@ const queryClient = new QueryClient({
 
 export const AppProvider = ({ children }: IProps) => {
   return (
-    <QueryClientProvider client={queryClient}>{children}</QueryClientProvider>
+    <QueryClientProvider client={queryClient}>
+      <LayoutDefault>{children}</LayoutDefault>
+    </QueryClientProvider>
   )
 }

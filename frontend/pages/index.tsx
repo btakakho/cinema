@@ -1,12 +1,9 @@
-import { LayoutDefault } from 'layouts/Default'
 import type { NextPage } from 'next'
 
+import { Home } from '@/screens/Home'
+
 const HomePage: NextPage = () => {
-  return (
-    <LayoutDefault>
-      <h1>Hello World</h1>
-    </LayoutDefault>
-  )
+  return <Home />
 }
 
 export default HomePage
