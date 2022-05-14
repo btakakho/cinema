@@ -9,5 +9,9 @@ interface IProp {
 export const Icon = ({ name }: IProp) => {
   const IconComponent = MaterialIcons[name]
 
-  return <IconComponent /> || null
+  if (!IconComponent) {
+    return <MaterialIcons.MdCircle />
+  }
+
+  return <IconComponent />
 }
