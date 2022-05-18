@@ -1,3 +1,11 @@
+import { FavoriteMovies } from './FavoriteMovies/FavoriteMovies'
+import { PopularMovies } from './PopularMovies'
+
 export const MoviesContainer = () => {
-  return <div>MoviesContainer</div>
+  return (
+    <div>
+      <PopularMovies />
+      <FavoriteMovies />
+    </div>
+  )
 }
