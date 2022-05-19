@@ -20,6 +20,7 @@
       "@/assets/*": ["assets/*"],
       "@/components/*": ["components/*"],
       "@/screens/*": ["screens/*"],
+      "@/layouts/*": ["layouts/*"],
       "@/ui/*": ["components/ui/*"],
       "@/config/*": ["config/*"],
       "@/hooks/*": ["hooks/*"],

@@ -1,3 +1,5 @@
+import { toastr } from 'react-redux-toastr'
+
 import { Heading } from '@/components/ui/Heading'
 
 import { Meta } from '@/utils/meta/Meta'
@@ -11,6 +13,10 @@ export const Home = () => {
       <Heading className="text-gray-300 mb-8 text-xl">
         Watch movies online
       </Heading>
+
+      <button onClick={() => toastr.success('Auth', 'Success')}>
+        Show message
+      </button>
     </Meta>
   )
 }

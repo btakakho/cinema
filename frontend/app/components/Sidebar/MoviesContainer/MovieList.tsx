@@ -1,8 +1,6 @@
 import Link from 'next/link'
 
-import { IMovie } from '@/shared/types/movie.types'
-
-import styles from './MoviesList.module.scss'
+import styles from './MovieList.module.scss'
 
 import { IMovieList } from './movie-list.interface'
 

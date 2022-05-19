@@ -6,6 +6,7 @@
   "importOrder": [
     "<THIRD_PARTY_MODULES>",
     "^@/components/(.*)$",
+    "^@/layouts/(.*)$",
     "^@/screens/(.*)$",
     "^@/ui/(.*)$",
     "^@/hooks/(.*)$",
