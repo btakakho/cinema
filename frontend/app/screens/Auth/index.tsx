@@ -42,8 +42,6 @@ export const Auth = () => {
         <form onSubmit={handleSubmit(onSubmit)}>
           <Heading className="mb-6">Auth</Heading>
 
-          {/* fields */}
-
           <div className={styles.buttons}>
             <Button
               type="submit"
